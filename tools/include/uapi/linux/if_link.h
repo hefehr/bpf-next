@@ -354,6 +354,8 @@ enum {
 
 	IFLA_DEVLINK_PORT,
 
+	IFLA_XDP_FEATURES,
+
 	__IFLA_MAX
 };
 
