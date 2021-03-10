@@ -1048,6 +1048,8 @@ static int efx_pci_probe(struct pci_dev *pci_dev,
 
 	pci_info(pci_dev, "Solarflare NIC detected\n");
 
+	efx->net_dev->xdp_features = XDP_ACT_FULL | XDP_ACT_NDO_XMIT;
+
 	if (!efx->type->is_vf)
 		efx_probe_vpd_strings(efx);
 
