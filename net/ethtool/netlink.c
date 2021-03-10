@@ -288,6 +288,7 @@ ethnl_default_requests[__ETHTOOL_MSG_USER_CNT] = {
 	[ETHTOOL_MSG_MODULE_GET]	= &ethnl_module_request_ops,
 	[ETHTOOL_MSG_PSE_GET]		= &ethnl_pse_request_ops,
 	[ETHTOOL_MSG_RSS_GET]		= &ethnl_rss_request_ops,
+	[ETHTOOL_MSG_XDP_FEATURES_GET]	= &ethnl_xdp_request_ops,
 };
 
 static struct ethnl_dump_ctx *ethnl_dump_context(struct netlink_callback *cb)
@@ -1046,6 +1047,15 @@ static const struct genl_ops ethtool_genl_ops[] = {
 		.doit	= ethnl_default_doit,
 		.policy = ethnl_rss_get_policy,
 		.maxattr = ARRAY_SIZE(ethnl_rss_get_policy) - 1,
+	},
+	{
+		.cmd	= ETHTOOL_MSG_XDP_FEATURES_GET,
+		.doit	= ethnl_default_doit,
+		.start	= ethnl_default_start,
+		.dumpit	= ethnl_default_dumpit,
+		.done	= ethnl_default_done,
+		.policy = ethnl_xdp_features_get_policy,
+		.maxattr = ARRAY_SIZE(ethnl_xdp_features_get_policy) - 1,
 	},
 };
 

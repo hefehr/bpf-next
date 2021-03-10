@@ -52,6 +52,7 @@ enum {
 	ETHTOOL_MSG_PSE_GET,
 	ETHTOOL_MSG_PSE_SET,
 	ETHTOOL_MSG_RSS_GET,
+	ETHTOOL_MSG_XDP_FEATURES_GET,
 
 	/* add new constants above here */
 	__ETHTOOL_MSG_USER_CNT,
@@ -99,6 +100,7 @@ enum {
 	ETHTOOL_MSG_MODULE_NTF,
 	ETHTOOL_MSG_PSE_GET_REPLY,
 	ETHTOOL_MSG_RSS_GET_REPLY,
+	ETHTOOL_MSG_XDP_FEATURES_GET_REPLY,
 
 	/* add new constants above here */
 	__ETHTOOL_MSG_KERNEL_CNT,
@@ -892,6 +894,17 @@ enum {
 
 	__ETHTOOL_A_RSS_CNT,
 	ETHTOOL_A_RSS_MAX = (__ETHTOOL_A_RSS_CNT - 1),
+};
+
+/* XDP_FEATURES */
+enum {
+	ETHTOOL_A_XDP_FEATURES_UNSPEC,
+	ETHTOOL_A_XDP_FEATURES_HEADER,			/* nest - _A_HEADER_* */
+	ETHTOOL_A_XDP_FEATURES_DATA,			/* bitset */
+
+	/* add new constants above here */
+	__ETHTOOL_A_XDP_FEATURES_CNT,
+	ETHTOOL_A_XDP_FEATURES_MAX = __ETHTOOL_A_XDP_FEATURES_CNT - 1
 };
 
 /* generic netlink info */
